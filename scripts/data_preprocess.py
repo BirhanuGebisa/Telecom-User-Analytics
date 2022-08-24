@@ -68,12 +68,13 @@ class Data_preprocess():
         return missing_df
 
     #convert the bytes to megabytes
-    def convert_bytes_to_megabytes(self, bytes_data) -> pd.DataFrame:
-        for col in bytes_data:
-            self.df[col] = self.df[col] / 1*10e+5
-            self.df.rename(
-                columns={col: f'{col[:-7]}(MegaBytes)'}, inplace=True)
-        print('Error')
-        return self.df
+    def convert_bytes_to_megabytes(self, column):
+        megabyte = 1*10e+5
+        Total_MB = []
+        for i in column.values:
+            i = i / megabyte
+            Total_MB.append(i)
+
+        return Total_MB
 
 
