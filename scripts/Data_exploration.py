@@ -1,7 +1,10 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import plotly.express as px
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 ###################################PLOTTING FUNCTIONS###################################
 def format_float(value):
         
@@ -42,6 +45,16 @@ def plot_box(df:pd.DataFrame, x_col:str, title:str) -> None:
     plt.title(title, size=20)
     plt.xticks(rotation=75, fontsize=14)
     plt.show()
+def plotly_plot_scatter(df, x_col, y_col, marker_size, hover=[]):
+    fig = px.scatter(
+            df,
+            x=x_col,
+            y=y_col,
+            opacity=0.8,
+            hover_data=hover,
+            title=f'{x_col} vs. {y_col}')
+    fig.update_traces(marker_size=marker_size)
+    fig.show()
 
 def plot_box_multi(df:pd.DataFrame, x_col:str, y_col:str, title:str) -> None:
     plt.figure(figsize=(12, 7))
@@ -51,13 +64,12 @@ def plot_box_multi(df:pd.DataFrame, x_col:str, y_col:str, title:str) -> None:
     plt.yticks( fontsize=14)
     plt.show()
 
-def plot_scatter(df: pd.DataFrame, x_col: str, y_col: str, title: str, hue: str, style: str) -> None:
+def plot_scatter(df: pd.DataFrame, x_col: str, y_col: str) -> None:
     plt.figure(figsize=(12, 7))
-    sns.scatterplot(data = df, x=x_col, y=y_col, hue=hue, style=style)
-    plt.title(title, size=20)
+    sns.scatterplot(data = df, x=x_col, y=y_col)
+    plt.title(f'{x_col} Vs. {y_col}\n', size=20)
     plt.xticks(fontsize=14)
     plt.yticks( fontsize=14)
     plt.show()
-
 
 pd.options.display.float_format = format_float
