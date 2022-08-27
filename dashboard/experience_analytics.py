@@ -6,7 +6,7 @@ import sys
 
 def app():
 
-    st.title("User Experience Analysis")
+    st.title("Telecommunication User Experience Analysis")
 
     df_avgThr = pd.read_csv('data/top10avgThroughput.csv')
     df_rtt = pd.read_csv('data/top10rtt.csv')
@@ -41,5 +41,5 @@ def app():
     st.dataframe(df_frqtcp)
     st.bar_chart(df_frqtcp['0'])
 
-    st.header("Cluster with 3 group classification")
+    st.header("Cluster with 3 Group Classification")
     st.image('data/clusterExp.png')
