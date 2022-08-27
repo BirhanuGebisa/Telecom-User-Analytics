@@ -14,12 +14,12 @@ def app():
 
     st.header("To calculate a user's satisfaction score, enter values below.")
 
-    session_count = st.number_input('Enter sessions', key='a')
-    total_time = st.number_input('Enter total time', key='b')
-    total_data = st.number_input('Enter total data', key='c')
-    total_retransmission = st.number_input('Enter tcp retransmission', key='d')
-    average_delay = st.number_input('Enter average delay', key='e')
-    total_throughput = st.number_input('Enter average throughput', key='f')
+    session_count = st.number_input('Enter The Sessions', key='a')
+    total_time = st.number_input('Enter The Total Time', key='b')
+    total_data = st.number_input('Enter Total Data', key='c')
+    total_retransmission = st.number_input('Enter Tcp Retransmission', key='d')
+    average_delay = st.number_input('Enter Average Delay', key='e')
+    total_throughput = st.number_input('Enter Average Ahroughput', key='f')
 
     if st.button('Satisfaction prediction'):
         array = [session_count, total_time, total_data,
@@ -27,4 +27,4 @@ def app():
         val = model.predict([array])
         satisfaction = [i[0] for i in val][0]
         st.write(
-            "The user's estimated satisfaction score is: {:.3f}".format(satisfaction))
+            "The Telcommunication user's estimated satisfaction score is: {:.3f}".format(satisfaction))
