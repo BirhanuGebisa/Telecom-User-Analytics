@@ -1,15 +1,21 @@
 FROM ubuntu:18.04
+FROM python:3.8-slim
 
-RUN apt-get update
-RUN apt-get install python3 -y
-RUN apt-get install python3-pip -y
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-ENV HOME /home
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-STOPSIGNAL SIGTERM
-WORKDIR /home
+# informs Docker that the container listens on the specified network ports at runtime. 
+EXPOSE 8501
 
-COPY requirements.txt /home/requirements.txt
-RUN pip3 install -r requirements.txt
+WORKDIR /app
+COPY . /app
 
-ENTRYPOINT ["python3"]
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
+
+ENTRYPOINT ["streamlit", "run"]
+CMD ["app.py"]
