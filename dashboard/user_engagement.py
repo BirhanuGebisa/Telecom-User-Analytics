@@ -6,7 +6,7 @@ import sys
 
 def app():
 
-    st.title("User Engagement Analysis")
+    st.title("Telecommunication User Engagement Analysis")
 
     df_email = pd.read_csv('data/top10_email_users.csv')
     df_game = pd.read_csv('data/top10_gameApp_users.csv')
@@ -18,19 +18,19 @@ def app():
     df_session = pd.read_csv('data/top10_user_session.csv')
     df_DLUL = pd.read_csv('data/top10_DLUL_users.csv')
 
-    st.header("Top 3 best Handset Manufacturers")
+    st.header("Top 3 Best Handset Manufacturers")
     st.image('data/3_best_handset_manufacturers.png')
 
-    st.header("Top 5 best Handsets used for communication")
-    st.image('data/5 best phones used in communication.png')
+    st.header("Top 5 Best Handsets Used for Communication")
+    st.image('data/5 Best Phones used in Communication.png')
 
     st.header("Top 3 Most Used Applications")
     st.image('data/top10apps.png')
 
-    st.header("Data transfers and overall data usage correlation.")
+    st.header("Data Transfers and overall data usage correlation.")
     st.image('data/corellation.png')
     st.markdown(
-        'There is a correlation between data transfers and total data usage in games and other apps.')
+        'There is a correlation between Data Transfers and total data usage in games and other apps.')
 
     st.header("Top 10 Users Engaged Per Application")
     st.subheader("Email App users")
