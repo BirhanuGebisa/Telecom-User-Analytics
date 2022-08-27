@@ -15,7 +15,7 @@ def app():
     df_frqrtt = pd.read_csv('data/most_freqRTT.csv')
     df_frqtcp = pd.read_csv('data/most_freqTCP.csv')
 
-    st.header("Top 10 Users Experience analysis")
+    st.header("Top 10 Telcom Users Experience analysis")
     st.subheader("Average Throughput")
     st.dataframe(df_avgThr)
     st.bar_chart(df_avgThr['Average throughput'])
