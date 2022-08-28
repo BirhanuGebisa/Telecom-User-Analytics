@@ -11,14 +11,9 @@ Analyse opportunities for growth and make a recommendation on whether TellCo is 
 
 ### Top 3 handset manufacturers
 
-![1661614929916](image/README/1661614929916.png)
 
 **Top 5 handsets per top 3 handset manufacturer**
 
-![1661614986227](image/README/1661614986227.png)
-
-
-![1661615111484](image/README/1661615111484.png)
 
 ## Installation for linux
 
